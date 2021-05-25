@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="qr.cpp">
+    <ClCompile Include="operation.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

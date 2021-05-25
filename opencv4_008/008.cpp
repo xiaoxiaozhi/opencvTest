@@ -5,6 +5,7 @@ using namespace std;
 int otherHist();
 void histMatch();
 void histMatch1();
+void myNormalize();
 void orb_features(Mat &gray, vector<KeyPoint> &keypionts, Mat &descriptions)
 {
 	Ptr<ORB> orb = ORB::create(1000, 1.2f);
@@ -13,7 +14,7 @@ void orb_features(Mat &gray, vector<KeyPoint> &keypionts, Mat &descriptions)
 }
 //均衡的结果是图像对比度的增加。均衡能够使对比度较低的局部区域获得高对比度，从而分散最频繁的强度。当图像非常暗或者非常亮，并且背景和前景之间存在非常小的差异时，此方法非常有用。通过使用直方图均衡化，可以增加对比度，并提升暴露过度或暴露不足的细节。该技术在医学图像（例如X射线）中非常有用。
 int main(int arg, char** argv) {
-	/*Mat canvas = imread("D://images/flat11.jpg", IMREAD_COLOR);
+	Mat canvas = imread("D://images/flat11.jpg", IMREAD_COLOR);
 	if (canvas.empty()) {
 		printf("图像为空");
 		waitKey(0);
@@ -30,6 +31,10 @@ int main(int arg, char** argv) {
 	Mat b_hist, g_hist, r_hist;
 	float range[] = { 0,255 };
 	const float* histranges{ range };
+	//1.待统计直方图的图像数组 2. 输入的图像数量 3. 需要统计的通道索引数组 4. 可选的操作掩码 
+	//5.输出的统计直方图的结果，是一个dims维度的数组 6. 需要计算直方图的维度（通道），必须是整数 
+	//7.存放每个维度直方图的数组尺寸bin 8. 每个图像通道中灰度值的取值范围 9.直方图是否均匀的标志，默认是true
+	//10 是否累计统计直方图的标志。
 	calcHist(&mm[0], 1, 0, Mat(), b_hist, 1, &histSize, &histranges, true, false);
 	calcHist(&mm[1], 1, 0, Mat(), g_hist, 1, &histSize, &histranges, true, false);
 	calcHist(&mm[2], 1, 0, Mat(), r_hist, 1, &histSize, &histranges, true, false);
@@ -37,18 +42,19 @@ int main(int arg, char** argv) {
 	Mat result = Mat::zeros(Size(600, 400), CV_8UC3);
 	int margin = 50;
 	int nm = result.rows - 2 * margin;
-	//
+	//归一化 1.归一化输入 2. 归一化输出 3. 4. 5. 归一化
 	normalize(b_hist, b_hist,
-		0,//均衡化最小值
-		nm,//均衡化最大值
+		0,//归一化最小值
+		1,//归一化最大值
 		NORM_MINMAX,//归一化所用的计算公式
-		-1, Mat());
+		-1, Mat());// 默认值和掩码
 	normalize(g_hist, g_hist, 0, nm, NORM_MINMAX, -1, Mat());
 	normalize(r_hist, r_hist, 0, nm, NORM_MINMAX, -1, Mat());
 
 	float step = 500 / 256.0;
 	for (int i = 0; i < 255; i++)
 	{
+	
 		float bh1 = b_hist.at<float>(i, 0);
 		float bh2 = b_hist.at<float>(i + 1, 0);
 		line(result, Point(step*i, 50 + (nm - bh1)), Point(step*(i + 1), 50 + (nm - bh2)), Scalar(255, 0, 0), 2, 8, 0);
@@ -60,11 +66,12 @@ int main(int arg, char** argv) {
 		float rh1 = r_hist.at<float>(i, 0);
 		float rh2 = r_hist.at<float>(i + 1, 0);
 		line(result, Point(step*i, 50 + (nm - rh1)), Point(step*(i + 1), 50 + (nm - rh2)), Scalar(0, 0, 255), 2, 8, 0);
+
 	}
 
 	imshow("result", result);
 
-	//直方图均衡化，均衡亮度通道 ，增加对比度，暴露更多的差异，缺点背景噪声增加，有用信号减少。
+	/*//直方图均衡化，均衡亮度通道 ，增加对比度，暴露更多的差异，缺点背景噪声增加，有用信号减少。
 	//用 yuv格式
 	Mat result1;
 	// Convert BGR image to YCbCr
@@ -75,7 +82,7 @@ int main(int arg, char** argv) {
 	vector<Mat> channels;
 	split(ycrcb, channels);
 
-	// Equalize the Y channel only
+	// Equalize the Y channel only  均衡化
 	equalizeHist(channels[0], channels[0]);
 
 	// Merge the result channels
@@ -87,12 +94,12 @@ int main(int arg, char** argv) {
 	imshow("canvas", canvas);
 
 	// Show image
-	imshow("Equalized", result1);
+	imshow("Equalized", result1);*/
 
 
 	//卷积 框越大 越模糊，Size(3*3) 卷积核 贸定点 Point(-1, -1) 是中间位置，右上角是0,0
-	*/
-	histMatch1();
+
+	//histMatch1();
 	waitKey(0);
 	destroyAllWindows();
 	return 0;
@@ -191,4 +198,8 @@ void histMatch1() {
 	drawMatches(img1, Keypoints1, img2, Keypoints2, good_matches, outimg1);
 	imshow("未筛选结果", outimg);
 	imshow("筛选结果", outimg1);
+}
+void myNormalize() {
+
+
 }

@@ -83,7 +83,11 @@ void myContours() {
 }
 void approxPoly() {
 	Mat img = imread("D:/images/stuff.jpg");
-	if (img.empty())	{		cout << "请确认图像文件名称是否正确" << endl;	}
+	if (img.empty())
+	{
+		cout << "请确认图像文件名称是否正确" << endl;
+
+	}
 
 	Mat img1, img2;
 	img.copyTo(img1);
@@ -151,5 +155,5 @@ void approxPoly() {
 	}
 	imshow("boundingRect", img1);
 	imshow("minAreaRect", img2);
-	imshow("result", img);
+	imshow("approxPolyDP", img);
 }

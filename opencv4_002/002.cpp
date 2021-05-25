@@ -50,10 +50,10 @@ int main(int arg, char** argv) {
 	// 创建跟原图大小 通道一样的图片
 	Mat mat5 = Mat::zeros(src.size(),src.type());
 	//遍历每一个像素
-	/*for (int col = 0; col < width;col++) {
+	for (int col = 0; col < width;col++) { //Mat类中的at方法作用：用于获取图像矩阵某点的值或改变某点的值。 
 		for (int row = 0; row < height; row++){
 			if (dim == 3) {
-				Vec3b pix = src.at<Vec3b>(col, row);
+				Vec3b pix = src.at<Vec3b>(col, row);//Vec3b 3通道rgb
 				int blue = pix[0];
 				int green = pix[1];
 				int red = pix[3];
@@ -66,7 +66,7 @@ int main(int arg, char** argv) {
 				src.at<uchar>(col, row) = 255 - pv;
 			}
 		}
-	}*/  
+	}
 	Mat mat6 = Mat::zeros(src.size(), src.type());
 	for (int row = 0; row < height; row++) {
 		uchar* curr_r = src.ptr<uchar>(row);

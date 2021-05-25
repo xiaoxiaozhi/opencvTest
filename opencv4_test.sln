@@ -11,7 +11,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "matTest", "opencv4_002\open
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv4_003", "opencv4_003\opencv4_003.vcxproj", "{DFD52582-21E1-4000-B1FA-F2DF88FC5987}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv4_004", "opencv4_004\opencv4_004.vcxproj", "{A74F56B4-D3DD-4E2B-9FAD-FE4682AB8677}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "baseOperation", "opencv4_004\opencv4_004.vcxproj", "{A74F56B4-D3DD-4E2B-9FAD-FE4682AB8677}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv4_005", "opencv_005\opencv_005.vcxproj", "{32F3F6C2-7E04-4DCC-980C-3D2BD7911EAF}"
 EndProject
@@ -23,7 +23,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "calcHist", "opencv4_008\ope
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv4_009", "opencv4_009\opencv4_009.vcxproj", "{05AD6967-835D-4FC9-9095-B91C74ACC155}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv_010", "opencv_010\opencv_010.vcxproj", "{A73725D8-22AE-4CF2-8002-B0EBFAB195FC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv4_010", "opencv_010\opencv_010.vcxproj", "{A73725D8-22AE-4CF2-8002-B0EBFAB195FC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv4_011", "opencv4_11\opencv4_11.vcxproj", "{A3E0D55D-080E-4C82-A259-AA812AF11063}"
 EndProject
@@ -43,11 +43,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv4_018", "opencv4_018\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "opencv4_019", "opencv4_019\opencv4_019.vcxproj", "{4F5A74F4-5FA4-456B-A532-FAEC1449FCF6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "calcBackProject", "016直方图投影\016直方图投影.vcxproj", "{CD3A6B6E-A731-4149-A9AC-6F2197773AFA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "histBackProjection", "016直方图投影\016直方图投影.vcxproj", "{CD3A6B6E-A731-4149-A9AC-6F2197773AFA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "backgroundAnalysis", "backgroundAnalysis\backgroundAnalysis.vcxproj", "{7C15D66D-A71E-416E-92A4-38FC35B1A9B4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "colorTrack", "colorTrack\colorTrack.vcxproj", "{1175BDF7-3D3A-4BB4-B848-B5CFBDE08BD1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QRcode", "QRcode\QRcode.vcxproj", "{9C24E26A-AA4B-47F8-8B9B-33AA26F267D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -241,6 +243,14 @@ Global
 		{1175BDF7-3D3A-4BB4-B848-B5CFBDE08BD1}.Release|x64.Build.0 = Release|x64
 		{1175BDF7-3D3A-4BB4-B848-B5CFBDE08BD1}.Release|x86.ActiveCfg = Release|Win32
 		{1175BDF7-3D3A-4BB4-B848-B5CFBDE08BD1}.Release|x86.Build.0 = Release|Win32
+		{9C24E26A-AA4B-47F8-8B9B-33AA26F267D8}.Debug|x64.ActiveCfg = Debug|x64
+		{9C24E26A-AA4B-47F8-8B9B-33AA26F267D8}.Debug|x64.Build.0 = Debug|x64
+		{9C24E26A-AA4B-47F8-8B9B-33AA26F267D8}.Debug|x86.ActiveCfg = Debug|Win32
+		{9C24E26A-AA4B-47F8-8B9B-33AA26F267D8}.Debug|x86.Build.0 = Debug|Win32
+		{9C24E26A-AA4B-47F8-8B9B-33AA26F267D8}.Release|x64.ActiveCfg = Release|x64
+		{9C24E26A-AA4B-47F8-8B9B-33AA26F267D8}.Release|x64.Build.0 = Release|x64
+		{9C24E26A-AA4B-47F8-8B9B-33AA26F267D8}.Release|x86.ActiveCfg = Release|Win32
+		{9C24E26A-AA4B-47F8-8B9B-33AA26F267D8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,15 +16,15 @@ int main(int argc, char** argv) {
 	imshow("sample", model);
 
 	Mat model_hsv, image_hsv;
-	cvtColor(model, model_hsv, COLOR_BGR2HSV);
-	cvtColor(src, image_hsv, COLOR_BGR2HSV);
+	cvtColor(model, image_hsv, COLOR_BGR2HSV);
+	cvtColor(src, model_hsv, COLOR_BGR2HSV);
 
 	int h_bins = 48, s_bins = 48;
 	int histSize[] = { h_bins, s_bins };
 	int channels[] = { 0, 1 };
 	Mat roiHist;
-	float h_range[] = { 0, 180 };
-	float s_range[] = { 0, 255 };
+	float h_range[] = { 11, 25 };
+	float s_range[] = { 43, 255 };
 	const float* ranges[] = { h_range, s_range };
 	calcHist(&model_hsv, 1, channels, Mat(), roiHist, 2, histSize, ranges, true, false);
 	normalize(roiHist, roiHist, 0, 255, NORM_MINMAX, -1, Mat());
