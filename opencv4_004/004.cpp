@@ -3,8 +3,6 @@
 using namespace cv;
 using namespace std;
 int main(int arg, char** argv) {
-	//mat.at<type> 对应
-	//https://blog.csdn.net/qq_28584889/article/details/102958731?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-1&spm=1001.2101.3001.4242 
 	Mat src = imread("D:/images/car.jpg");//默认的RGB彩色图像加载，此外支持灰度图像与任意格式
 	if (src.empty()) {
 		printf("图像为空");
